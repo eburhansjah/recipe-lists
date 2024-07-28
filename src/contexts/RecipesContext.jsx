@@ -7,14 +7,13 @@ export const RecipesContext = createContext();
 const fetcher = (url) => fetch(url).then(res => res.json());
 
 const RecipesProvider = ({children}) => {
-    const{data: recipesData, error: recipesError, isLoading: recipesLoading} =
-        useSWR('http://localhost:3000/recipes', fetcher);
+    const{data, error, isLoading} = useSWR('http://localhost:3000/recipes', fetcher);
 
-    if (recipesError) return <div>Error loading recipes</div>;
-    if(recipesLoading) return <div>Loading recipes...</div>;
+    if (error) return <div>Error loading recipes</div>;
+    if (isLoading) return <div>Loading recipes...</div>;
 
     return(
-        <RecipesContext.Provider value={{recipesData}}>
+        <RecipesContext.Provider value={{data}}>
             {children}
         </RecipesContext.Provider>
     );
