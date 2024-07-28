@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "listId": 1,
+    "title": "Beef Rendang",
+    "dishType": "Main entree",
+    "prepTime": 0,
+    "cookTime": 0,
+    "servings": 0,
+    "ingredients": ["test"],
+    "instructions": ["test"],
+    "calories": 0
+  },
+  {
+    "id": 2,
+    "title": "Korean Cuisine"
+  },
+  {
+    "id": 3,
+    "title": "Japanese Cuisine"
+  },
+  {
+    "id": 4,
+    "title": "Italian Cuisine"
+  },
+  {
+    "id": 5,
+    "title": "American Cuisine"
+  }
+]
