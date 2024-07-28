@@ -45,11 +45,15 @@ export default function Categories(){
     return(
         <CategoryListWrapper>
             <StyledTitle>Recipe Categories</StyledTitle>
-                {categories.map((category) => (
+            {categories.length === 0 ? (
+                <p>No categories available.</p>
+            ) : (
+                categories.map((category) => (
                     <StyledCategoryItem key={category.id}>
                         <NavLink to={`/recipes/${category.id}`}>{category.title}</NavLink>
                     </StyledCategoryItem>
-                ))}
+                ))
+            )}
         </CategoryListWrapper>
     );
 }
