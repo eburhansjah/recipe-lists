@@ -14,16 +14,28 @@ const CategoryListWrapper = styled.div`
 `;
 
 const StyledTitle = styled.h1`
-    font-size: calc(10px + 2vmin);
+    font-family: 'Monaco', monospace;
+    font-size: calc(20px + 2vmin);
+    font-weight: bold;
     margin: 20px 0;
     text-align: center;
 `;
 
+const StyledNavLink = styled(NavLink)`
+    text-decoration: none;
+    color: black;
+    
+    &:hover{
+        text-decoration: underline;
+    }
+`;
+
 const StyledCategoryItem = styled.div`
+    font-size: calc(10px + 2vmin);
     max-width: 600px;
     margin: 10px 0;
     padding: 20px;
-    border: 1px inset black;
+    border: 3px inset indianred;
     border-radius: 8px;
     text-align: left;
     
@@ -32,7 +44,7 @@ const StyledCategoryItem = styled.div`
     }
     
     @media (min-width: 1024px){}
-        width: 30%;
+        width: 50%;
 `;
 
 export default function Categories(){
@@ -45,12 +57,13 @@ export default function Categories(){
     return(
         <CategoryListWrapper>
             <StyledTitle>Recipe Categories</StyledTitle>
+            {/*Debugging purposes*/}
             {categories.length === 0 ? (
                 <p>No categories available.</p>
             ) : (
                 categories.map((category) => (
                     <StyledCategoryItem key={category.id}>
-                        <NavLink to={`/recipes/${category.id}`}>{category.title}</NavLink>
+                        <StyledNavLink to={`/recipes/${category.id}`}>{category.title}</StyledNavLink>
                     </StyledCategoryItem>
                 ))
             )}

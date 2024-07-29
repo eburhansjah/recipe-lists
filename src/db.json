@@ -56,7 +56,7 @@
               "Heat cooking oil in saucepan in medium heat, and saute sweet onions and minced garlic. When softened, add in the other sliced vegetables and shaved beef",
               "When beef is almost done cooking, add in the baby spinach. Place lid on pan and allow it to steam until wilted",
               "Pour in the mixed sauce and stir evenly",
-              "Serve with sesame seeds"],
+              "Garnish with sesame seeds and ready to serve"],
       "calories_per_serving": 250
     },
     {
@@ -76,7 +76,7 @@
               "Heat cooking oil on frying pan on medium heat. Cook sweet onions, green onions, and minced garlic for 3 minutes",
               "Add the meat and stir fry. Season with sugar and soy sauce. When done cooking, set aside",
               "Divide udon noodles into 2 separate serving bowls. Pour in the hot broth, place the stir fried beef and soft boiled egg on top",
-              "Top with green onions and ready to serve"],
+              "Garnish with green onions and ready to serve"],
       "calories_per_serving": 579
     },
     {
@@ -113,6 +113,21 @@
               "Season with mustard and ketchup",
               "Top with another bun and ready to serve (repeat for the other burger)"],
       "calories_per_serving": 354
+    },
+    {
+      "id": 6,
+      "listId": 3,
+      "title": "Oyakodon",
+      "dishType": "Main entree",
+      "prepTime_minutes": 5,
+      "cookTime_minutes": 10,
+      "servings": 2,
+      "ingredients": ["soy sauce", "dashi", "mirin", "sugar", "eggs", "cubed chicken thighs", "green onion", "sliced sweet onion"],
+      "instructions": ["In a bowl, mix soy sauce, dashi, mirin and sugar. Bring to a simmer for 1 minute",
+        "Add chicken cubes in a single layer. Cook until tender and no longer pink for about 5 minutes on each side",
+        "Add beaten egg on top",
+        "Garnish with green onion and ready to serve"],
+      "calories_per_serving": 600
     }
   ]
 }
