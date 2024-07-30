@@ -1,5 +1,4 @@
 import React, {createContext, useCallback, useReducer} from 'react';
-// import useSWR from 'swr';
 import PropTypes from 'prop-types';
 
 export const RecipesContext = createContext();
@@ -35,9 +34,9 @@ const RecipesProvider = ({ children }) => {
 
     const fetchRecipes = useCallback(async () => {
         try {
-            const response = await fetch('http://localhost:3000/recipes');
-            const data = await response.json();
-            dispatch({ type: 'FETCH_RECIPES_SUCCESS', payload: data });
+            const response = await fetch('https://eburhansjah.github.io/recipe-lists/src/db.json');
+            const {recipes} = await response.json();
+            dispatch({ type: 'FETCH_RECIPES_SUCCESS', payload: recipes });
         } catch (error) {
             dispatch({ type: 'FETCH_RECIPES_ERROR', payload: error.message });
         }
@@ -53,7 +52,7 @@ const RecipesProvider = ({ children }) => {
     if (error) return <div>Error loading recipes: {error}</div>;
 
     return (
-        <RecipesContext.Provider value={{ recipes }}>
+        <RecipesContext.Provider value={{recipes}}>
             {children}
         </RecipesContext.Provider>
     );
@@ -61,23 +60,6 @@ const RecipesProvider = ({ children }) => {
 
 export default RecipesProvider;
 
-// const fetcher = (url) => fetch(url).then(res => res.json());
-//
-// const RecipesProvider = ({children}) => {
-//     const{data, error, isLoading} = useSWR('http://localhost:3000/recipes', fetcher);
-//
-//     if (error) return <div>Error loading recipes</div>;
-//     if (isLoading) return <div>Loading recipes...</div>;
-//
-//     return(
-//         <RecipesContext.Provider value={{data}}>
-//             {children}
-//         </RecipesContext.Provider>
-//     );
-// }
-//
-// export default RecipesProvider;
-//
 RecipesProvider.propTypes = {
     children: PropTypes.node.isRequired,
 }

@@ -1,6 +1,6 @@
 import {useContext} from 'react';
 import {NavLink} from 'react-router-dom';
-import {CategoriesContext} from "../contexts/CategoriesContext";
+import {CategoriesContext} from '../contexts/CategoriesContext';
 import styled from 'styled-components';
 
 
@@ -31,6 +31,9 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 const StyledCategoryItem = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: calc(10px + 2vmin);
     max-width: 600px;
     margin: 10px 0;
@@ -49,7 +52,7 @@ const StyledCategoryItem = styled.div`
 
 export default function Categories(){
     const categoriesData = useContext(CategoriesContext);
-    console.log(categoriesData);
+    // console.log(categoriesData);
 
     // Checking if categoriesData is loaded
     const categories = categoriesData?.categories || [];

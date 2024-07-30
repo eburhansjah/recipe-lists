@@ -1,8 +1,8 @@
 import {useContext} from 'react';
 import {useParams, useNavigate} from 'react-router-dom';
-import {RecipesContext} from "../contexts/RecipesContext.jsx";
+import {RecipesContext} from '../contexts/RecipesContext';
 import styled from 'styled-components';
-import RecipeDetails from './RecipeDetails.jsx';
+import RecipeDetails from './RecipeDetails';
 
 const RecipeListWrapper = styled.div`
     display: flex;
@@ -41,6 +41,9 @@ const StyledButton = styled.button`
 `;
 
 const StyledRecipeItem = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: relative;
     width: 90%;
     max-width: 600px;
     margin: 10px 0;
@@ -81,7 +84,7 @@ const Recipes = () => {
           {filteredRecipes.length > 0 ? (
               filteredRecipes.map((recipe) => (
                   <StyledRecipeItem key={recipe.id}>
-                      <RecipeDetails recipe={recipe} />
+                      <RecipeDetails recipe={recipe}/>
                   </StyledRecipeItem>
               ))
           ) : (
@@ -89,7 +92,7 @@ const Recipes = () => {
           )}
 
           <ButtonWrapper>
-              <StyledButton onClick={backClickHandle}>Back to Categories</StyledButton>
+          <StyledButton onClick={backClickHandle}>Back to Categories</StyledButton>
               <StyledButton onClick={scrollToTopHandle}>To the Top</StyledButton>
           </ButtonWrapper>
       </RecipeListWrapper>

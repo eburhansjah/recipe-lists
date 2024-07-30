@@ -35,9 +35,9 @@ const CategoriesProvider = ({ children }) => {
 
     const fetchCategories = useCallback(async () => {
         try {
-            const response = await fetch('http://localhost:3000/categories');
-            const data = await response.json();
-            dispatch({ type: 'FETCH_CATEGORIES_SUCCESS', payload: data });
+            const response = await fetch('https://eburhansjah.github.io/recipe-lists/src/db.json');
+            const {categories} = await response.json();
+            dispatch({ type: 'FETCH_CATEGORIES_SUCCESS', payload: categories });
         } catch (error) {
             dispatch({ type: 'FETCH_CATEGORIES_ERROR', payload: error.message });
         }
@@ -53,7 +53,7 @@ const CategoriesProvider = ({ children }) => {
     if (error) return <div>Error loading recipe categories: {error}</div>;
 
     return (
-        <CategoriesContext.Provider value={{ categories }}>
+        <CategoriesContext.Provider value={{categories}}>
             {children}
         </CategoriesContext.Provider>
     );
@@ -61,21 +61,6 @@ const CategoriesProvider = ({ children }) => {
 
 export default CategoriesProvider;
 
-// const fetcher = (url) => fetch(url).then(res => res.json());
-//
-// export default function CategoriesProvider ({children}) {
-//     const{data, error, isLoading} = useSWR('http://localhost:3000/categories', fetcher);)
-//
-//     if (error) return <div>Error loading recipe categories</div>;
-//     if (isLoading) return <div>Loading recipe categories...</div>;
-//
-//     return(
-//         <CategoriesContext.Provider value={data}>
-//             {children}
-//         </CategoriesContext.Provider>
-//     );
-// }
-//
 CategoriesProvider.propTypes = {
     children: PropTypes.node.isRequired,
 }
